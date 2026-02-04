@@ -1,0 +1,201 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(to bottom, #ffb6c1, #ff69b4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Container */
+.container {
+  z-index: 2;
+  position: relative;
+  padding: 20px;
+  color: white;
+}
+
+/* Headings */
+h1 {
+  font-size: 3rem;
+  margin-bottom: 30px;
+}
+
+/* Image Placeholder */
+.image-placeholder {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto 30px auto;
+  border: 2px dashed white;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255,255,255,0.6);
+  font-size: 1rem;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+a.yes {
+  text-decoration: none;
+  background: white;
+  color: #ff1493;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  transition: 0.3s;
+  box-shadow: 0 0 15px rgba(255,20,147,0.6);
+}
+
+a.yes:hover {
+  transform: scale(1.1);
+}
+
+/* NO Button - moves on hover */
+button.no {
+  background: #ff1493;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  transition: 0.3s;
+}
+
+button.no:hover {
+  animation: moveNo 0.6s infinite;
+}
+
+/* Move animation for NO */
+@keyframes moveNo {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(80px, -30px); }
+  50% { transform: translate(-70px, 20px); }
+  75% { transform: translate(60px, 10px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Floating Hearts */
+.hearts span {
+  position: fixed;
+  bottom: -20px;
+  animation: float 8s infinite ease-in;
+  font-size: 20px;
+  opacity: 0.7;
+}
+
+.hearts span:nth-child(1) { left: 10%; animation-duration: 6s; }
+.hearts span:nth-child(2) { left: 30%; animation-duration: 8s; }
+.hearts span:nth-child(3) { left: 50%; animation-duration: 7s; }
+.hearts span:nth-child(4) { left: 70%; animation-duration: 9s; }
+.hearts span:nth-child(5) { left: 90%; animation-duration: 6.5s; }
+
+@keyframes float {
+  0% { transform: translateY(0); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-110vh); opacity: 0; }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .image-placeholder {
+    width: 80%;
+    height: 200px;
+  }
+
+  a.yes, button.no {
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+}
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Show modal when targeted */
+.modal:target {
+  display: flex;
+}
+
+.modal-content {
+  background: #fff0f5;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 350px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  color: #ff1493;
+}
+
+.modal-content h2 {
+  margin-bottom: 25px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.modal-buttons a {
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+/* Confirm YES button */
+.confirm-yes {
+  background: white;
+  color: #ff1493;
+}
+
+.confirm-yes:hover {
+  transform: scale(1.1);
+}
+
+/* Confirm NO button */
+.confirm-no {
+  background: #ff1493;
+  color: white;
+}
+
+.confirm-no:hover {
+  background: #ff69b4;
+}
